@@ -95,9 +95,9 @@ public:
 
   bool sensor_has_state() const override { return this->sensor_->has_state(); }  
   std::string sensor_object_id() const override {
-    std::string id;
-    this->sensor_->get_object_id_to(id);
-    return id;
+    char buf[esphome::OBJECT_ID_MAX_LEN];
+    esphome::StringRef ref = this->sensor_->get_object_id_to(buf);
+    return std::string(ref.data(), ref.size());
   }
   void publish(std::string &line) const override;
 
@@ -126,9 +126,9 @@ public:
 
   bool sensor_has_state() const override { return this->sensor_->has_state(); }  
   std::string sensor_object_id() const override {
-    std::string id;
-    this->sensor_->get_object_id_to(id);
-    return id;
+    char buf[esphome::OBJECT_ID_MAX_LEN];
+    esphome::StringRef ref = this->sensor_->get_object_id_to(buf);
+    return std::string(ref.data(), ref.size());
   }
   void publish(std::string &line) const override;
 
@@ -148,9 +148,9 @@ public:
 
   bool sensor_has_state() const override { return this->sensor_->has_state(); }  
   std::string sensor_object_id() const override {
-    std::string id;
-    this->sensor_->get_object_id_to(id);
-    return id;
+    char buf[esphome::OBJECT_ID_MAX_LEN];
+    esphome::StringRef ref = this->sensor_->get_object_id_to(buf);
+    return std::string(ref.data(), ref.size());
   }
   void publish(std::string &line) const override;
 
