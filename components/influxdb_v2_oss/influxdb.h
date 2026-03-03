@@ -93,8 +93,12 @@ class BinarySensorField : public Field {
 public:
   void set_sensor(const binary_sensor::BinarySensor *sensor) { this->sensor_ = sensor; }
 
-  bool sensor_has_state() const override { return this->sensor_->has_state(); }
-  std::string sensor_object_id() const override { return this->sensor_->get_object_id(); }
+  bool sensor_has_state() const override { return this->sensor_->has_state(); }  
+  std::string sensor_object_id() const override {
+    std::string id;
+    this->sensor_->get_object_id_to(id);
+    return id;
+  }
   void publish(std::string &line) const override;
 
 protected:
@@ -120,8 +124,12 @@ public:
   void set_accuracy_decimals(int8_t val) { this->accuracy_decimals_ = val; }
   void set_raw_state(bool val) { this->raw_state_ = val; }
 
-  bool sensor_has_state() const override { return this->sensor_->has_state(); }
-  std::string sensor_object_id() const override { return this->sensor_->get_object_id(); }
+  bool sensor_has_state() const override { return this->sensor_->has_state(); }  
+  std::string sensor_object_id() const override {
+    std::string id;
+    this->sensor_->get_object_id_to(id);
+    return id;
+  }
   void publish(std::string &line) const override;
 
 protected:
@@ -138,8 +146,12 @@ public:
   void set_sensor(text_sensor::TextSensor *sensor) { this->sensor_ = sensor; }
   void set_raw_state(bool val) { this->raw_state_ = val; }
 
-  bool sensor_has_state() const override { return this->sensor_->has_state(); }
-  std::string sensor_object_id() const override { return this->sensor_->get_object_id(); }
+  bool sensor_has_state() const override { return this->sensor_->has_state(); }  
+  std::string sensor_object_id() const override {
+    std::string id;
+    this->sensor_->get_object_id_to(id);
+    return id;
+  }
   void publish(std::string &line) const override;
 
 protected:
